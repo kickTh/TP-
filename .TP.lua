@@ -222,6 +222,16 @@ spawn(function()
 end)
 
 
+spawn(function()
+    game:GetService("RunService").Stepped:Connect(function()
+         if _G.Chest3 or _G.Chest2 or _G.Chest1 then
+          setfflag("HumanoidParallelRemoveNoPhysics", "False")
+          setfflag("HumanoidParallelRemoveNoPhysicsNoSimulate2", "False")
+        end
+    end)
+end)
+
+
 
 pcall(function()
 	for i,v in pairs(game:GetService("Workspace").Map.Dressrosa.Tavern:GetDescendants()) do
@@ -246,9 +256,6 @@ end)
 game.Players.LocalPlayer.Character.Pants:Destroy()
 game.Players.LocalPlayer.Character.Humanoid.JumpPower = 0
 game.Players.LocalPlayer.Character.Animate.Disabled = true
-setfflag("HumanoidParallelRemoveNoPhysics", "False")
-setfflag("HumanoidParallelRemoveNoPhysicsNoSimulate2", "False")
-game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
 for i,go in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
     if go.ClassName == "Accessory" then
         go:Destroy()
