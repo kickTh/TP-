@@ -102,7 +102,7 @@ end)
 
 
 
-spawn(function()
+spawn(function(4.3)
     while wait(4) do
     if _G.AutoPirates then
 	pcall(function()
@@ -122,7 +122,7 @@ end)
 
 
 spawn(function()
-    while wait(4) do
+    while wait(4.5) do
     if _G.AutoMarines then
 	pcall(function()
 	local args = {
