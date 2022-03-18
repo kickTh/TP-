@@ -1,7 +1,20 @@
 
 if game.PlaceId == 2753915549 or 4442272183 or 7449423635 then
 end
+
+if not game:IsLoaded() then game.Loaded:Wait() end
 repeat wait() until game.Players.LocalPlayer
+repeat wait() until game.Players
+repeat wait() until game.Players.LocalPlayer
+repeat wait() until game.ReplicatedStorage
+repeat wait() until game.ReplicatedStorage:FindFirstChild("Remotes");
+repeat wait() until game.Players.LocalPlayer:FindFirstChild("PlayerGui");
+repeat wait() until game.Players.LocalPlayer.PlayerGui:FindFirstChild("Main");
+repeat wait()
+
+
+
+
 
 game.StarterGui:SetCore("SendNotification", {
 Title = "SOME X HUB";
