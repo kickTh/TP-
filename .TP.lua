@@ -41,6 +41,9 @@ _G.AutoDie = true
 _G.AutoRj = true
 _G.AutoPirates = true
 _G.AutoMarines = true
+_G.InfAbility = true
+_G.Auto_Haki = true
+_G.AutoObservation = true
 
 spawn(function()
     while wait(second) do
@@ -244,6 +247,81 @@ pcall(function()
 	end
 end)
 
+
+spawn(function()
+    while wait(.1) do
+        if _G.Auto_Haki then
+            if not game.Players.LocalPlayer.Character:FindFirstChild("HasBuso") then
+                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Buso")
+            end
+        end
+    end
+end)
+
+
+
+spawn(function()
+	while wait() do
+		if _G.AutoObservation then
+			if not game.Players.LocalPlayer.PlayerGui.ScreenGui:FindFirstChild("ImageLabel") then
+				wait(1)
+				game:GetService('VirtualUser'):CaptureController()
+				game:GetService('VirtualUser'):SetKeyDown('0x65')
+			   	wait(2)
+			   	game:GetService('VirtualUser'):SetKeyUp('0x65')
+			end
+		end
+	end
+end)
+
+
+
+
+spawn(function()
+	while wait() do
+		if _G.InfAbility then
+			InfAb()
+		end
+	end
+end)
+
+function InfAb()
+	if _G.InfAbility then
+		if not game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("Agility") then
+			local inf = Instance.new("ParticleEmitter")
+			inf.Acceleration = Vector3.new(0,0,0)
+			inf.Archivable = true
+			inf.Drag = 20
+			inf.EmissionDirection = Enum.NormalId.Top
+			inf.Enabled = true
+			inf.Lifetime = NumberRange.new(0.2,0.2)
+			inf.LightInfluence = 0
+			inf.LockedToPart = true
+			inf.Name = "Agility"
+			inf.Rate = 500
+			local numberKeypoints2 = {
+				NumberSequenceKeypoint.new(0, 0);  -- At t=0, size of 0
+				NumberSequenceKeypoint.new(1, 4); -- At t=1, size of 10
+			}
+
+			inf.Size = NumberSequence.new(numberKeypoints2)
+			inf.RotSpeed = NumberRange.new(999, 9999)
+			inf.Rotation = NumberRange.new(0, 0)
+			inf.Speed = NumberRange.new(30, 30)
+			inf.SpreadAngle = Vector2.new(360,360)
+			inf.Texture = "rbxassetid://243098098"
+			inf.VelocityInheritance = 0
+			inf.ZOffset = 2
+			inf.Transparency = NumberSequence.new(0)
+			inf.Color = ColorSequence.new(Color3.fromRGB(0, 255, 255),Color3.fromRGB(0, 255, 255))
+			inf.Parent = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart
+		end
+	else
+		if game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("Agility") then
+			game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("Agility"):Destroy()
+		end
+	end
+end
 
 
 
