@@ -2,10 +2,9 @@
 if game.PlaceId == 2753915549 or 4442272183 or 7449423635 then
 end
 
-if not game:IsLoaded() then game.Loaded:Wait() end
+
 repeat wait() until game.Players.LocalPlayer
 repeat wait() until game.Players
-repeat wait() until game.Players.LocalPlayer
 repeat wait() until game.ReplicatedStorage
 repeat wait() until game.ReplicatedStorage:FindFirstChild("Remotes");
 repeat wait() until game.Players.LocalPlayer:FindFirstChild("PlayerGui");
@@ -177,8 +176,7 @@ spawn(function()
                 LOL.Anchored = true
                 LOL.Transparency = 0.8
                 LOL.Size = Vector3.new(10,0.5,10)
-                LOL.Material = "Neon"
-                 
+                
           elseif game:GetService("Workspace"):FindFirstChild("LOL") then
                 game.Workspace["LOL"].CFrame = CFrame.new(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.X,game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Y - 3,game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Z)
           end
