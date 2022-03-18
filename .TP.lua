@@ -163,52 +163,9 @@ spawn(function()
                 LOL.Parent = game.Workspace
                 LOL.Anchored = true
                 LOL.Transparency = 0.8
-                LOL.Size = Vector3.new(10,-0.5,10)
+                LOL.Size = Vector3.new(10,0.5,10)
                 LOL.Material = "Neon"
-                 while true do 
-                 wait(0.1) 
-                 game:GetService('TweenService'):Create(
-                     Paertaiteen,TweenInfo.new(1,Enum.EasingStyle.Linear,Enum.EasingDirection.InOut),
-                 {Color = Color3.fromRGB(255, 0, 0)}):Play() 
-                 wait(.5)
- 
-                 game:GetService('TweenService'):Create(
-                     Paertaiteen,TweenInfo.new(1,Enum.EasingStyle.Linear,Enum.EasingDirection.InOut),
-                 {Color = Color3.fromRGB(255, 155, 0)}):Play() 
-                 wait(.5)
- 
-                 game:GetService('TweenService'):Create(
-                     Paertaiteen,TweenInfo.new(1,Enum.EasingStyle.Linear,Enum.EasingDirection.InOut),
-                 {Color = Color3.fromRGB(255, 255, 0)}):Play() 
-                 wait(.5)
- 
-                 game:GetService('TweenService'):Create(
-                     Paertaiteen,TweenInfo.new(1,Enum.EasingStyle.Linear,Enum.EasingDirection.InOut),
-                 {Color = Color3.fromRGB(0, 255, 0)}):Play() 
-                 wait(.5)
- 
-                 game:GetService('TweenService'):Create(
-                     Paertaiteen,TweenInfo.new(1,Enum.EasingStyle.Linear,Enum.EasingDirection.InOut),
-                 {Color = Color3.fromRGB(0, 255, 255)}):Play() 
-                 wait(.5)
- 
-                 game:GetService('TweenService'):Create(
-                     Paertaiteen,TweenInfo.new(1,Enum.EasingStyle.Linear,Enum.EasingDirection.InOut),
-                 {Color = Color3.fromRGB(0, 155, 255)}):Play() 
-                 wait(.5)
- 
-                 game:GetService('TweenService'):Create(
-                     Paertaiteen,TweenInfo.new(1,Enum.EasingStyle.Linear,Enum.EasingDirection.InOut),
-                 {Color = Color3.fromRGB(255, 0, 255)}):Play() 
-                 wait(.5)
- 
-                 game:GetService('TweenService'):Create(
-                     Paertaiteen,TweenInfo.new(1,Enum.EasingStyle.Linear,Enum.EasingDirection.InOut),
-                 {Color = Color3.fromRGB(255, 0, 155)}):Play() 
-                 wait(.5)
-             end
-                
-                
+                 
           elseif game:GetService("Workspace"):FindFirstChild("LOL") then
                 game.Workspace["LOL"].CFrame = CFrame.new(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.X,game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Y - 3,game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Z)
           end
@@ -309,7 +266,7 @@ end
 
 
 spawn(function()
-    while wait(0.1) do
+    while wait(1.1) do
     if _G.Chest3 then
 	pcall(function()
 for i,v in pairs(game:GetDescendants()) do
@@ -325,7 +282,7 @@ end)
  
 
 spawn(function()
-    while wait(0.1) do
+    while wait(1.1) do
     if _G.Chest2 then
 	pcall(function()
 for i,v in pairs(game:GetDescendants()) do
@@ -345,7 +302,7 @@ end)
 
 
 spawn(function()
-    while wait(0.1) do
+    while wait(1.1) do
     if _G.Chest1 then
 	pcall(function()
 for i,v in pairs(game:GetDescendants()) do
