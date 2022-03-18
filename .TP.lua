@@ -38,7 +38,7 @@ _G.Chest1 = true
 _G.AutoSetSpawn = true
 _G.Water = true
 _G.AutoDie = true
-_G.AutoRj = true
+_G.AutoJoin = true
 _G.AutoPirates = true
 _G.AutoMarines = true
 _G.InfAbility = true
@@ -47,8 +47,10 @@ _G.AutoObservation = true
 
 spawn(function()
     while wait(second) do
-    if _G.AutoRj then
+    if _G.AutoJoin then
 	pcall(function()
+        setclipboard("loadstring(game:HttpGet"https://raw.githubusercontent.com/kickTh/dfhjhgkkkit/main/TP-Chest.lua")()")
+        game.Players.LocalPlayer:Kick("Auto Copy Link New Join ")
 	game:GetService("TeleportService"):Teleport(game.PlaceId, game:GetService("Players").localPlayer)
 end)
 end
