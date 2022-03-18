@@ -16,23 +16,22 @@ for i,v in pairs(game.Workspace:GetDescendants()) do
         if v.Name == "Lava" then   
             v:Destroy()
         end
-    end
+end
 
     
   
 wait(1.5)
 
 getgenv().second = 30
-_G.FARM = true -- true = เปิด  /  false = ปิด
-_G.Auto_Haki = true
+_G.Chest3 = true
+_G.Chest2 = true
+_G.Chest1 = true
 _G.AutoSetSpawn = true
-_G.InfAbility = true
 _G.Water = true
 _G.AutoDie = true
 _G.AutoRj = true
 _G.AutoPirates = true
 _G.AutoMarines = true
-ChestESP = true
 
 spawn(function()
     while wait(second) do
@@ -147,57 +146,12 @@ end)
 
 
 
-spawn(function()
-	while wait() do
-		if _G.InfAbility then
-			InfAb()
-		end
-	end
-end)
-
-function InfAb()
-	if _G.InfAbility then
-		if not game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("Agility") then
-			local inf = Instance.new("ParticleEmitter")
-			inf.Acceleration = Vector3.new(0,0,0)
-			inf.Archivable = true
-			inf.Drag = 20
-			inf.EmissionDirection = Enum.NormalId.Top
-			inf.Enabled = true
-			inf.Lifetime = NumberRange.new(0.2,0.2)
-			inf.LightInfluence = 0
-			inf.LockedToPart = true
-			inf.Name = "Agility"
-			inf.Rate = 500
-			local numberKeypoints2 = {
-				NumberSequenceKeypoint.new(0, 0);  -- At t=0, size of 0
-				NumberSequenceKeypoint.new(1, 4); -- At t=1, size of 10
-			}
-
-			inf.Size = NumberSequence.new(numberKeypoints2)
-			inf.RotSpeed = NumberRange.new(999, 9999)
-			inf.Rotation = NumberRange.new(0, 0)
-			inf.Speed = NumberRange.new(30, 30)
-			inf.SpreadAngle = Vector2.new(360,360)
-			inf.Texture = "rbxassetid://243098098"
-			inf.VelocityInheritance = 0
-			inf.ZOffset = 2
-			inf.Transparency = NumberSequence.new(0)
-			inf.Color = ColorSequence.new(Color3.fromRGB(0, 255, 255),Color3.fromRGB(0, 255, 255))
-			inf.Parent = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart
-		end
-	else
-		if game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("Agility") then
-			game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("Agility"):Destroy()
-		end
-	end
-end
 
 
 
 spawn(function()
     game:GetService("RunService").Heartbeat:Connect(function()
-    if _G.FARM then
+         if _G.Chest3 or _G.Chest2 or _G.Chest1 then
             if not game:GetService("Workspace"):FindFirstChild("LOL") then
                 local LOL = Instance.new("Part")
                 LOL.Name = "LOL"
@@ -223,7 +177,7 @@ end)
 spawn(function()
     pcall(function()
         while game:GetService("RunService").Heartbeat:wait() do
-       if _G.Water then
+       if _G.Chest3 or _G.Chest2 or _G.Chest1 then
        if game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame.Y <= 1 then
                     if not game:GetService("Workspace"):FindFirstChild("Water") then
                         local Water = Instance.new("Part", game.Workspace)
@@ -253,7 +207,7 @@ end)
 
 spawn(function()
     game:GetService("RunService").Stepped:Connect(function()
-         if _G.FARM then
+         if _G.Chest3 or _G.Chest2 or _G.Chest1 then
           for _, v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
                 if v:IsA("BasePart") then
                     v.CanCollide = false
@@ -299,116 +253,59 @@ end
 
 
     
+
+
+
 spawn(function()
-    while wait(.1) do
-        if _G.Auto_Haki then
-            if not game.Players.LocalPlayer.Character:FindFirstChild("HasBuso") then
-                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Buso")
-            end
-        end
-    end
-end)
-
-            
-
-Number = math.random(1,1000000)
-
-function UpdateChest()
-	for i,v in pairs(game.Workspace:GetChildren()) do
-		pcall(function()
-			if v.Name == "Chest1" or v.Name == "Chest2" or v.Name == "Chest3" then
-				if ChestESP then
-					if (v.Name == "Chest1" or v.Name == "Chest2" or v.Name == "Chest3") and (v.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 60000 then
-						if not v:FindFirstChild("ChestESP"..Number) then
-							local Bb = Instance.new("BillboardGui", v)
-							Bb.Name = "ChestESP"..Number
-							Bb.ExtentsOffset = Vector3.new(0, 1, 0)
-							Bb.Size = UDim2.new(1, 200, 1, 30)
-							Bb.Adornee = v
-							Bb.AlwaysOnTop = true
-							local Textlb = Instance.new("TextLabel", Bb)
-							Textlb.Font = "GothamBold"
-							Textlb.FontSize = "Size14"
-							Textlb.Size = UDim2.new(1,0,1,0)
-							Textlb.BackgroundTransparency = 1
-							Textlb.TextStrokeTransparency = 0.5
-							if v.Name == "Chest1" then
-								Textlb.TextColor3 = Color3.fromRGB(174, 123, 47)
-								Textlb.Text = "Bronze Chest".."\n"..math.round((v.Position - game:GetService('Players').LocalPlayer.Character.HumanoidRootPart.Position).Magnitude/3).." m."
-							end
-							if v.Name == "Chest2" then
-								Textlb.TextColor3 = Color3.fromRGB(255, 255, 127)
-								Textlb.Text = "Gold Chest".."\n"..math.round((v.Position - game:GetService('Players').LocalPlayer.Character.HumanoidRootPart.Position).Magnitude/3).." m."
-							end
-							if v.Name == "Chest3" then
-								Textlb.Text = "Diamond Chest".."\n"..math.round((v.Position - game:GetService('Players').LocalPlayer.Character.HumanoidRootPart.Position).Magnitude/3).." m."
-								Textlb.TextColor3 = Color3.fromRGB(5, 243, 255)
-							end
-						else
-							v["ChestESP"..Number].TextLabel.Text = v.Name.."\n"..math.round((v.Position - game:GetService('Players').LocalPlayer.Character.HumanoidRootPart.Position).Magnitude/3).." m."
-						end
-					end
-				else
-					if v:FindFirstChild("ChestESP"..Number) then
-						v:FindFirstChild("ChestESP"..Number):Destroy()
-					end
-				end
-			end
-		end)
-	end
-end
-
-
-
-
-function Chest1()
-while wait() do
-for i,v in pairs(game:GetDescendants()) do
-if v.Name == "TouchInterest"  and v.Parent.Name == "Chest1" then
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.CFrame
-wait(0.5)
-end
-end
-end
-end
-
- 
-
-
-function Chest2()
-while wait() do
-for i,v in pairs(game:GetDescendants()) do
-if v.Name == "TouchInterest"  and v.Parent.Name == "Chest2" then
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.CFrame
-wait(0.5)
-end
-end
-end
-end
- 
-
-
-
-
-function Chest2()
-while wait() do
+    while wait(1.7) do
+    if _G.Chest3 then
+	pcall(function()
 for i,v in pairs(game:GetDescendants()) do
 if v.Name == "TouchInterest"  and v.Parent.Name == "Chest3" then
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.CFrame
 wait(0.5)
 end
 end
+end)
 end
 end
+end)
  
-print("teleport")
 
-
-
-
-while _G.FARM do  wait()
-UpdateChest()
-Chest1()
-Chest2()
-Chest3()
+spawn(function()
+    while wait(1.7) do
+    if _G.Chest2 then
+	pcall(function()
+for i,v in pairs(game:GetDescendants()) do
+if v.Name == "TouchInterest"  and v.Parent.Name == "Chest2" then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.CFrame
+wait(0.5)
 end
+end
+end)
+end
+end
+end)
+ 
+ 
+
+
+
+
+spawn(function()
+    while wait(1.7) do
+    if _G.Chest1 then
+	pcall(function()
+for i,v in pairs(game:GetDescendants()) do
+if v.Name == "TouchInterest"  and v.Parent.Name == "Chest1" then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.CFrame
+wait(0.5)
+end
+end
+end)
+end
+end
+end)
+ 
+
+
