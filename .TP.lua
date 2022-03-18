@@ -49,7 +49,7 @@ spawn(function()
     while wait(second) do
     if _G.AutoJoin then
 	pcall(function()
-        setclipboard("loadstring(game:HttpGet"https://raw.githubusercontent.com/kickTh/dfhjhgkkkit/main/TP-Chest.lua")()")
+        
         game.Players.LocalPlayer:Kick("Auto Copy Link New Join ")
 	game:GetService("TeleportService"):Teleport(game.PlaceId, game:GetService("Players").localPlayer)
 end)
@@ -147,7 +147,7 @@ end)
 
 
     spawn(function()
-    while wait(10) do
+    while wait(4) do
     if _G.AutoDie then
 	pcall(function()
 	game.Players.LocalPlayer.Character.Humanoid.Health = die
