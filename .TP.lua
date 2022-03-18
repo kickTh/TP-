@@ -31,7 +31,7 @@ end
   
 wait(1.5)
 
-getgenv().second = 60
+getgenv().second = 30
 _G.Chest3 = true
 _G.Chest2 = true
 _G.Chest1 = true
@@ -102,8 +102,8 @@ end)
 
 
 
-spawn(function(4.3)
-    while wait(4) do
+spawn(function()
+    while wait(4.3) do
     if _G.AutoPirates then
 	pcall(function()
 	local args = {
