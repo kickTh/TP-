@@ -31,7 +31,7 @@ end
   
 wait(1.5)
 
-getgenv().second = 120
+getgenv().second = 60
 _G.Chest3 = true
 _G.Chest2 = true
 _G.Chest1 = true
