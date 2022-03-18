@@ -1,3 +1,7 @@
+
+if game.PlaceId == 2753915549 or 4442272183 or 7449423635 then
+repeat wait() until game.Players.LocalPlayer
+
 game.StarterGui:SetCore("SendNotification", {
 Title = "SOME X HUB";
 Text = "Play...";
@@ -22,7 +26,7 @@ end
   
 wait(1.5)
 
-getgenv().second = 30
+getgenv().second = 35
 _G.Chest3 = true
 _G.Chest2 = true
 _G.Chest1 = true
@@ -235,6 +239,7 @@ end)
     spawn(function()
     while wait() do
     if _G.AutoSetSpawn then
+    game:GetService("RunService").RenderStepped:Connect(function()
 	pcall(function()
 	game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
 	game.Players.LocalPlayer.Character.Shirt:Destroy()
@@ -247,6 +252,7 @@ for i,go in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
     end
 end
 	end)
+	end)
 	end
     end
     end)
@@ -257,8 +263,9 @@ end
 
 
 spawn(function()
-    while wait(1.7) do
+    while wait(1.8) do
     if _G.Chest3 then
+    game:GetService("RunService").RenderStepped:Connect(function()
 	pcall(function()
 for i,v in pairs(game:GetDescendants()) do
 if v.Name == "TouchInterest"  and v.Parent.Name == "Chest3" then
@@ -267,15 +274,17 @@ wait(0.5)
 end
 end
 end)
+end)
 end
 end
 end)
  
 
 spawn(function()
-    while wait(1.7) do
+    while wait(1.8) do
     if _G.Chest2 then
 	pcall(function()
+	game:GetService("RunService").RenderStepped:Connect(function()
 for i,v in pairs(game:GetDescendants()) do
 if v.Name == "TouchInterest"  and v.Parent.Name == "Chest2" then
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.CFrame
@@ -283,6 +292,7 @@ wait(0.5)
 end
 end
 end)
+end)
 end
 end
 end)
@@ -293,8 +303,9 @@ end)
 
 
 spawn(function()
-    while wait(1.7) do
+    while wait(1.8) do
     if _G.Chest1 then
+    game:GetService("RunService").RenderStepped:Connect(function()
 	pcall(function()
 for i,v in pairs(game:GetDescendants()) do
 if v.Name == "TouchInterest"  and v.Parent.Name == "Chest1" then
@@ -302,6 +313,7 @@ game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.CFrame
 wait(0.5)
 end
 end
+end)
 end)
 end
 end
