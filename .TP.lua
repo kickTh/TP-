@@ -166,7 +166,7 @@ spawn(function()
                 LOL.Name = "LOL"
                 LOL.Parent = game.Workspace
                 LOL.Anchored = true
-                LOL.Transparency = 0.8
+                LOL.Transparency = 0.7
                 LOL.Size = Vector3.new(10,0.5,10)
                 
           elseif game:GetService("Workspace"):FindFirstChild("LOL") then
