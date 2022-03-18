@@ -31,7 +31,7 @@ end
   
 wait(1.5)
 
-getgenv().second = 60
+getgenv().second = 120
 _G.Chest3 = true
 _G.Chest2 = true
 _G.Chest1 = true
@@ -50,7 +50,7 @@ spawn(function()
     if _G.AutoJoin then
 	pcall(function()
         
-        game.Players.LocalPlayer:Kick("Auto Copy Link New Join ")
+        game.Players.LocalPlayer:Kick("Join New..")
 	game:GetService("TeleportService"):Teleport(game.PlaceId, game:GetService("Players").localPlayer)
 end)
 end
