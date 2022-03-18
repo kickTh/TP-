@@ -1,5 +1,6 @@
 
 if game.PlaceId == 2753915549 or 4442272183 or 7449423635 then
+end
 repeat wait() until game.Players.LocalPlayer
 
 game.StarterGui:SetCore("SendNotification", {
@@ -265,7 +266,6 @@ end
 spawn(function()
     while wait(1.8) do
     if _G.Chest3 then
-    game:GetService("RunService").RenderStepped:Connect(function()
 	pcall(function()
 for i,v in pairs(game:GetDescendants()) do
 if v.Name == "TouchInterest"  and v.Parent.Name == "Chest3" then
@@ -273,7 +273,6 @@ game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.CFrame
 wait(0.5)
 end
 end
-end)
 end)
 end
 end
@@ -284,14 +283,12 @@ spawn(function()
     while wait(1.8) do
     if _G.Chest2 then
 	pcall(function()
-	game:GetService("RunService").RenderStepped:Connect(function()
 for i,v in pairs(game:GetDescendants()) do
 if v.Name == "TouchInterest"  and v.Parent.Name == "Chest2" then
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.CFrame
 wait(0.5)
 end
 end
-end)
 end)
 end
 end
@@ -305,7 +302,6 @@ end)
 spawn(function()
     while wait(1.8) do
     if _G.Chest1 then
-    game:GetService("RunService").RenderStepped:Connect(function()
 	pcall(function()
 for i,v in pairs(game:GetDescendants()) do
 if v.Name == "TouchInterest"  and v.Parent.Name == "Chest1" then
@@ -313,7 +309,6 @@ game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.CFrame
 wait(0.5)
 end
 end
-end)
 end)
 end
 end
