@@ -266,7 +266,7 @@ end
 
 
 spawn(function()
-    while wait(1.1) do
+    while wait() do
     if _G.Chest3 then
 	pcall(function()
 for i,v in pairs(game:GetDescendants()) do
@@ -282,7 +282,7 @@ end)
  
 
 spawn(function()
-    while wait(1.1) do
+    while wait() do
     if _G.Chest2 then
 	pcall(function()
 for i,v in pairs(game:GetDescendants()) do
@@ -302,7 +302,7 @@ end)
 
 
 spawn(function()
-    while wait(1.1) do
+    while wait() do
     if _G.Chest1 then
 	pcall(function()
 for i,v in pairs(game:GetDescendants()) do
