@@ -32,7 +32,7 @@ _G.AutoDie = true
 _G.AutoRj = true
 _G.AutoPirates = true
 _G.AutoMarines = true
-
+ChestESP = true
 
 spawn(function()
     while wait(second) do
@@ -311,6 +311,53 @@ end)
 
             
 
+Number = math.random(1,1000000)
+
+function UpdateChest()
+	for i,v in pairs(game.Workspace:GetChildren()) do
+		pcall(function()
+			if v.Name == "Chest1" or v.Name == "Chest2" or v.Name == "Chest3" then
+				if ChestESP then
+					if (v.Name == "Chest1" or v.Name == "Chest2" or v.Name == "Chest3") and (v.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 60000 then
+						if not v:FindFirstChild("ChestESP"..Number) then
+							local Bb = Instance.new("BillboardGui", v)
+							Bb.Name = "ChestESP"..Number
+							Bb.ExtentsOffset = Vector3.new(0, 1, 0)
+							Bb.Size = UDim2.new(1, 200, 1, 30)
+							Bb.Adornee = v
+							Bb.AlwaysOnTop = true
+							local Textlb = Instance.new("TextLabel", Bb)
+							Textlb.Font = "GothamBold"
+							Textlb.FontSize = "Size14"
+							Textlb.Size = UDim2.new(1,0,1,0)
+							Textlb.BackgroundTransparency = 1
+							Textlb.TextStrokeTransparency = 0.5
+							if v.Name == "Chest1" then
+								Textlb.TextColor3 = Color3.fromRGB(174, 123, 47)
+								Textlb.Text = "Bronze Chest".."\n"..math.round((v.Position - game:GetService('Players').LocalPlayer.Character.HumanoidRootPart.Position).Magnitude/3).." m."
+							end
+							if v.Name == "Chest2" then
+								Textlb.TextColor3 = Color3.fromRGB(255, 255, 127)
+								Textlb.Text = "Gold Chest".."\n"..math.round((v.Position - game:GetService('Players').LocalPlayer.Character.HumanoidRootPart.Position).Magnitude/3).." m."
+							end
+							if v.Name == "Chest3" then
+								Textlb.Text = "Diamond Chest".."\n"..math.round((v.Position - game:GetService('Players').LocalPlayer.Character.HumanoidRootPart.Position).Magnitude/3).." m."
+								Textlb.TextColor3 = Color3.fromRGB(5, 243, 255)
+							end
+						else
+							v["ChestESP"..Number].TextLabel.Text = v.Name.."\n"..math.round((v.Position - game:GetService('Players').LocalPlayer.Character.HumanoidRootPart.Position).Magnitude/3).." m."
+						end
+					end
+				else
+					if v:FindFirstChild("ChestESP"..Number) then
+						v:FindFirstChild("ChestESP"..Number):Destroy()
+					end
+				end
+			end
+		end)
+	end
+end
+
 
 
 
@@ -360,6 +407,7 @@ print("teleport")
 
 
 while _G.FARM do  wait()
+UpdateChest()
 Chest1()
 Chest2()
 Chest3()
