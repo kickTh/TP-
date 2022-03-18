@@ -142,7 +142,7 @@ end)
 
 
     spawn(function()
-    while wait(3.9) do
+    while wait(10) do
     if _G.AutoDie then
 	pcall(function()
 	game.Players.LocalPlayer.Character.Humanoid.Health = die
