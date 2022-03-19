@@ -9,7 +9,7 @@ repeat wait() until game.Players.LocalPlayer
 
 game.StarterGui:SetCore("SendNotification", {
 Title = "SOME X HUB";
-Text = "Play...";
+Text = "Play 20 second...";
 Icon = "http://www.roblox.com/asset/?id=6031075938";
 Duration = 5;
 })
@@ -31,7 +31,7 @@ end
   
 wait(1.5)
 
-getgenv().second = 30
+getgenv().second = 20
 _G.Chest3 = true
 _G.Chest2 = true
 _G.Chest1 = true
@@ -49,8 +49,7 @@ spawn(function()
     while wait(second) do
     if _G.AutoJoin then
 	pcall(function()
-        
-        
+        game.Players.LocalPlayer:Kick("Join New....")
 	game:GetService("TeleportService"):Teleport(game.PlaceId, game:GetService("Players").localPlayer)
 end)
 end
@@ -122,7 +121,7 @@ end)
 
 
 spawn(function()
-    while wait(4.3) do
+    while wait(4.5) do
     if _G.AutoMarines then
 	pcall(function()
 	local args = {
