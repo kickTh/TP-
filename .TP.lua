@@ -50,7 +50,7 @@ spawn(function()
     if _G.AutoJoin then
 	pcall(function()
         
-        game.Players.LocalPlayer:Kick("Join New..")
+        
 	game:GetService("TeleportService"):Teleport(game.PlaceId, game:GetService("Players").localPlayer)
 end)
 end
@@ -122,7 +122,7 @@ end)
 
 
 spawn(function()
-    while wait(4.5) do
+    while wait(4.3) do
     if _G.AutoMarines then
 	pcall(function()
 	local args = {
